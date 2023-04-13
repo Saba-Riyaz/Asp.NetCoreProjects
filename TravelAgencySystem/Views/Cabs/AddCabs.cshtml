@@ -1,0 +1,53 @@
+﻿@model TravelAgencySystem.Models.CabsEntity
+
+@{
+    ViewData["Title"] = "AddCabs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddCabs</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SaveCabs">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input type="hidden" asp-for="CabId" />
+                <label asp-for="CabName" class="control-label"></label>
+                <input asp-for="CabName" class="form-control" />
+                <span asp-validation-for="CabName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CabType" class="control-label"></label>
+                <input asp-for="CabType" class="form-control" />
+                <span asp-validation-for="CabType" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="CabDescription" class="control-label"></label>
+                <input asp-for="CabDescription" class="form-control" />
+                <span asp-validation-for="CabDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CabNumber" class="control-label"></label>
+                <input asp-for="CabNumber" class="form-control" />
+                <span asp-validation-for="CabNumber" class="text-danger"></span>
+            </div>
+          
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="CabsList" class="btn btn-outline-success">Cabs List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

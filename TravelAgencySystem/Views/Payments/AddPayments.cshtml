@@ -1,0 +1,78 @@
+﻿@model TravelAgencySystem.Models.PaymentsEntity
+@{
+    ViewData["Title"] = "AddPayments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddPayments</h1>
+
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SavePayments">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input type="hidden" asp-for="PaymentId" />
+                <label asp-for="PaymentDate" class="control-label"></label>
+                <input asp-for="PaymentDate" class="form-control" />
+                <span asp-validation-for="PaymentDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PaymentAmount" class="control-label"></label>
+                <input asp-for="PaymentAmount" class="form-control" />
+                <span asp-validation-for="PaymentAmount" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                <input asp-for="PaymentMethod" class="form-control" />
+                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="PaymentStatus" class="control-label"></label>
+                <input asp-for="PaymentStatus" class="form-control" />
+                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+            </div>
+
+
+        @*    <div class="form-group">
+                <label asp-for="PakageId" class="control-label"></label>
+                <input asp-for="PakageId" class="form-control" />
+                <span asp-validation-for="PakageId" class="text-danger"></span>
+            </div>*@
+
+
+    @*        pending*@
+
+@*            <div class="form-group">
+                <label asp-for="PakageId" class="control-label"></label>
+                <select asp-for="PakageId" class="form-control" asp-items="@(new SelectList(ViewBag.CustList,"CustId","CustName"))">
+                </select>
+
+            </div>
+            *@     
+            <div class="form-group">
+                <label asp-for="PakageId" class="control-label"></label>
+                <select asp-for="PakageId" class="form-control" asp-items="@(new SelectList(ViewBag.PakagesList,"PakageId","PakageName"))">
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="PaymentsList" class="btn btn-outline-success">Payments List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

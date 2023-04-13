@@ -1,0 +1,48 @@
+﻿@model TravelAgencySystem.Models.PakagesEntity
+@{
+    ViewData["Title"] = "AddPakages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddPakages</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SavePakages">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input type="hidden" asp-for="PakageId" />
+                <label asp-for="PakageName" class="control-label"></label>
+                <input asp-for="PakageName" class="form-control" />
+                <span asp-validation-for="PakageName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PakageDescription" class="control-label"></label>
+                <input asp-for="PakageDescription" class="form-control" />
+                <span asp-validation-for="PakageDescription" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="PakagePrice" class="control-label"></label>
+                <input asp-for="PakagePrice" class="form-control" />
+                <span asp-validation-for="PakagePrice" class="text-danger"></span>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="PakagesList"class="btn btn-outline-success">PakagesList</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

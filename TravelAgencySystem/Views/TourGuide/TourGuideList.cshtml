@@ -1,0 +1,81 @@
+﻿@model IEnumerable<TravelAgencySystem.Models.TourGuideEntity>
+@{
+    ViewData["Title"] = "TourGuideList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>TourGuideList</h1>
+
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddTourGuide" asp-controller="TourGuide" class="btn btn-outline-secondary">Add TourGuide </a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add Customer</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="DepartmentList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.GuideName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GuideEmail)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.GuidePhoneNumber)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.LanguagesSpoken)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.GuideBio)
+            </th>
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuideName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuideEmail)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuidePhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LanguagesSpoken)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.GuideBio)
+                </td>
+
+
+                <td>
+                    @Html.ActionLink("Update", "AddTourGuide", new {  item.GuideId, item.GuideName, item.GuideEmail, item.GuidePhoneNumber, item.LanguagesSpoken , item.GuideBio } , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteTourGuide", new {  item.GuideId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

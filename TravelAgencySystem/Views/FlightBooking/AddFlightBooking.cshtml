@@ -1,0 +1,90 @@
+﻿@model TravelAgencySystem.Models.FlightBookingEntity
+@{
+    ViewData["Title"] = "AddFlightBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddFlightBooking</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SaveFlightBooking">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input type="hidden" asp-for="FlightId" />
+                <label asp-for="FlightNumber" class="control-label"></label>
+                <input asp-for="FlightNumber" class="form-control" />
+                <span asp-validation-for="FlightNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DepartureCity" class="control-label"></label>
+                <input asp-for="DepartureCity" class="form-control" />
+                <span asp-validation-for="DepartureCity" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="ArivalCity" class="control-label"></label>
+                <input asp-for="ArivalCity" class="form-control" />
+                <span asp-validation-for="ArivalCity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DepartureDate" class="control-label"></label>
+                <input asp-for="DepartureDate" class="form-control" />
+                <span asp-validation-for="DepartureDate" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="ArivalDate" class="control-label"></label>
+                <input asp-for="ArivalDate" class="form-control" />
+                <span asp-validation-for="ArivalDate" class="text-danger"></span>
+            </div>
+
+@*
+            <div class="form-group">
+                <label asp-for="CustId" class="control-label"></label>
+                <input asp-for="CustId" class="form-control" />
+                <span asp-validation-for="CustId" class="text-danger"></span>
+            </div>*@
+
+@*            <div class="form-group">
+                <label class="col-xs-3 control-label">Cust Id</label>
+                <div class="col-xs-5 selectContainer">
+
+                    <select class="form-control" name="CustId" runat="server" id="Combobox">
+                        <option value="">Choose a Customer Id</option>
+                        <option value="">1 </option>
+                        <option value="">2 </option>
+                        <option value="">3 </option>
+                        <option value="">4 </option>
+                    </select>
+                </div>
+            </div>*@
+
+
+            <div class="form-group">
+                <label asp-for="CustId" class="control-label"></label>
+                <select asp-for="CustId" class="form-control" asp-items="@(new SelectList(ViewBag.CustList,"CustId","CustName"))">
+                </select>
+
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="FlightBookingList" class="btn btn-outline-success"> FlightBookingList </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

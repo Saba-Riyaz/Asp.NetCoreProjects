@@ -1,0 +1,90 @@
+﻿@model IEnumerable<TravelAgencySystem.Models.FlightBookingEntity>
+@{
+    ViewData["Title"] = "FlightBookingList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>FlightBookingList</h1>
+
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddFlightBooking" asp-controller="FlightBooking" class="btn btn-outline-secondary"> Add FlightBooking</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add Customer</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="DepartmentList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureCity)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ArivalCity)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureDate)
+            </th>
+
+              <th>
+                @Html.DisplayNameFor(model => model.ArivalDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CustId)
+            </th>
+
+
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureCity)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArivalCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureDate)
+                </td>
+
+                 <td>
+                    @Html.DisplayFor(modelItem => item.ArivalDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustId)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Update", "AddFlightBooking", new {  item.FlightId, item.FlightNumber, item.DepartureCity, item.ArivalCity, item.DepartureDate , item.ArivalDate ,  item.CustId   } , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteFlightBooking", new {  item.FlightId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

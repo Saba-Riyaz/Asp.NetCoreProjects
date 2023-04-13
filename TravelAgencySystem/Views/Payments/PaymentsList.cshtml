@@ -1,0 +1,88 @@
+﻿@model IEnumerable<TravelAgencySystem.Models.PaymentsEntity>
+@{
+    ViewData["Title"] = "PaymentsList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>PaymentsList</h1>
+
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddPayments" asp-controller="Payments" class="btn btn-outline-secondary"> Add Payments</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add Customer</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="DepartmentList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentAmount)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentMethod)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentStatus)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PakageId)
+            </th>
+
+          
+          
+
+
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentAmount)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentMethod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentStatus)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PakageId)
+                </td>
+
+    
+
+                <td>
+                    @Html.ActionLink("Update", "AddPayments", new {  item.PaymentId, item.PaymentDate, item.PaymentAmount, item.PaymentMethod, item.PaymentStatus , item.PakageId  } , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeletePayments", new {  item.PaymentId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,110 @@
+﻿@model IEnumerable<TravelAgencySystem.Models.ReservationEntity>
+@{
+    ViewData["Title"] = "ReservationList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ReservationList</h1>
+
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddReservation" asp-controller="Reservation" class="btn btn-outline-secondary">Add Reservation</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add Customer</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="DepartmentList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ResDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PakageId)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.HotelId)
+
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FlightId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.GuideId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CustId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CabId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentId)
+            </th>
+
+
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PakageId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.HotelId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightId)
+                </td>
+
+                        <td>
+                    @Html.DisplayFor(modelItem => item.GuideId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CabId)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentId)
+                </td>
+
+
+
+                <td>
+                    @Html.ActionLink("Update", "AddReservation", new {  item.ResId, item.ResDate, item.PakageId, item.HotelId  , item.FlightId , item.GuideId , item.CustId , item.CabId , item.PaymentId} , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteReservation", new {  item.ResId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

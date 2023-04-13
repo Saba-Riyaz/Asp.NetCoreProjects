@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TravelAgencySystem.Models.CabsEntity>
+@{
+    ViewData["Title"] = "CabsList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CabsList</h1>
+
+<hr />
+
+<p class="float-left">
+    <a asp-action="AddCabs" asp-controller="Cabs" class="btn btn-outline-secondary">Add Cabs</a>
+</p>
+
+<p class="float-right">
+    @* <a asp-action="AddCustomer" asp-controller="Item" class="btn btn-outline-secondary">Add Customer</a> |*@
+    @*<a asp-action="List" class="btn btn-outline-primary">Item List</a> |
+    <a asp-action="DepartmentList" asp-controller="Item" class="btn btn-outline-primary">Category List</a>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CabName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CabType)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.CabDescription)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.CabNumber)
+            </th>
+
+           
+
+
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CabName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CabType)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CabDescription)
+                </td>
+           
+                <td>
+                    @Html.DisplayFor(modelItem => item.CabNumber)
+                </td>
+
+
+                <td>
+                    @Html.ActionLink("Update", "AddCabs", new {  item.CabId, item.CabName, item.CabType, item.CabDescription , item.CabNumber} , new { @class="btn btn-outline-success rounded-pill"}) |
+                    @Html.ActionLink("Delete", "DeleteCabs", new {  item.CabId  }, new { @class = "btn btn-outline-danger rounded-pill",onclick="return confirm('Do you really want this record?')" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
