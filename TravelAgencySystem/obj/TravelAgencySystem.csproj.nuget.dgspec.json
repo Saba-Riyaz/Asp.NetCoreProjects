@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj": {}
+    "C:\\Backup\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj": {}
   },
   "projects": {
-    "D:\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj": {
+    "C:\\Backup\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj",
+        "projectUniqueName": "C:\\Backup\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj",
         "projectName": "TravelAgencySystem",
-        "projectPath": "D:\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj",
+        "projectPath": "C:\\Backup\\Asp.NetCoreProjects\\TravelAgencySystem\\TravelAgencySystem.csproj",
         "packagesPath": "C:\\Users\\sriaz\\.nuget\\packages\\",
-        "outputPath": "D:\\Asp.NetCoreProjects\\TravelAgencySystem\\obj\\",
+        "outputPath": "C:\\Backup\\Asp.NetCoreProjects\\TravelAgencySystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sriaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
